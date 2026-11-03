@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Personal — Desarrollo Web</title>
+    <!-- CDN de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuente Google Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-slate-200">
+
+    <!-- CABECERA PRINCIPAL / NAVEGACIÓN -->
+    <header class="border-b border-slate-100 bg-white/90 backdrop-blur-sm sticky top-0 z-20">
+        <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" onclick="showBlogFeed(); return false;" class="text-base font-semibold text-slate-900 tracking-tight hover:opacity-80 transition-opacity">
+                Mi Blog
+            </a>
+            <nav class="flex items-center gap-6 text-sm text-slate-500">
+                <a href="#" onclick="showBlogFeed(); return false;" class="hover:text-slate-900 transition-colors">Inicio</a>
+                <a href="#articulos" onclick="showBlogFeed(); return false;" class="hover:text-slate-900 transition-colors">Entradas</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- FEED PRINCIPAL DE ENTRADAS -->
+    <main id="blog-feed" class="max-w-3xl mx-auto px-6 py-12 flex-grow w-full">
+        
+        <!-- PRESENTACIÓN MINIMALISTA -->
+        <header class="mb-12 pb-8 border-b border-slate-100">
+            <h1 class="text-3xl font-bold text-slate-900 tracking-tight">Notas sobre Desarrollo Web</h1>
+            <p class="mt-2 text-slate-500 text-sm leading-relaxed">
+                Bitácora sencilla donde comparto aprendizajes sobre HTML, CSS y diseño de interfaces.
+            </p>
+        </header>
+
+        <!-- SECCIÓN DE PUBLICACIONES -->
+        <div class="space-y-10" id="articulos">
+
+            <!-- ENTRADA 1 -->
+            <article class="group cursor-pointer" onclick="openArticle(1)">
+                <div class="overflow-hidden rounded-lg bg-slate-100 mb-4 h-48 sm:h-56">
+                    <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Semántica en HTML5" 
+                         class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300 opacity-95 group-hover:opacity-100"
+                         onerror="this.src='https://placehold.co/800x400/e2e8f0/475569?text=HTML5';">
+                </div>
+                <div class="flex items-center gap-3 text-xs text-slate-400 mb-2 font-medium">
+                    <span>12 oct, 2026</span>
+                    <span>•</span>
+                    <span>3 min de lectura</span>
+                </div>
+                <h2 class="text-xl font-semibold text-slate-900 group-hover:text-slate-600 transition-colors tracking-tight">
+                    La importancia de la semántica en HTML5
+                </h2>
+                <p class="mt-2 text-sm text-slate-600 leading-relaxed line-clamp-2">
+                    Aprende por qué estructurar tu código con etiquetas claras mejora la accesibilidad, la lectura del código y el posicionamiento SEO.
+                </p>
+                <span class="inline-block mt-3 text-xs font-medium text-slate-900 underline underline-offset-4 group-hover:text-slate-600">
+                    Leer artículo completo →
+                </span>
+            </article>
+
+            <!-- ENTRADA 2 -->
+            <article class="group cursor-pointer pt-8 border-t border-slate-100" onclick="openArticle(2)">
+                <div class="overflow-hidden rounded-lg bg-slate-100 mb-4 h-48 sm:h-56">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Layouts con CSS" 
+                         class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300 opacity-95 group-hover:opacity-100"
+                         onerror="this.src='https://placehold.co/800x400/e2e8f0/475569?text=CSS+Grid';">
+                </div>
+                <div class="flex items-center gap-3 text-xs text-slate-400 mb-2 font-medium">
+                    <span>18 oct, 2026</span>
+                    <span>•</span>
+                    <span>4 min de lectura</span>
+                </div>
+                <h2 class="text-xl font-semibold text-slate-900 group-hover:text-slate-600 transition-colors tracking-tight">
+                    Layouts limpios: Flexbox vs. CSS Grid
+                </h2>
+                <p class="mt-2 text-sm text-slate-600 leading-relaxed line-clamp-2">
+                    Guía rápida para entender cuándo conviene utilizar una estructura unidimensional o bidimensional en tus maquetas.
+                </p>
+                <span class="inline-block mt-3 text-xs font-medium text-slate-900 underline underline-offset-4 group-hover:text-slate-600">
+                    Leer artículo completo →
+                </span>
+            </article>
+
+            <!-- ENTRADA 3 -->
+            <article class="group cursor-pointer pt-8 border-t border-slate-100" onclick="openArticle(3)">
+                <div class="overflow-hidden rounded-lg bg-slate-100 mb-4 h-48 sm:h-56">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Diseño Web y UI" 
+                         class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300 opacity-95 group-hover:opacity-100"
+                         onerror="this.src='https://placehold.co/800x400/e2e8f0/475569?text=Dise%C3%B1o+Web';">
+                </div>
+                <div class="flex items-center gap-3 text-xs text-slate-400 mb-2 font-medium">
+                    <span>25 oct, 2026</span>
+                    <span>•</span>
+                    <span>3 min de lectura</span>
+                </div>
+                <h2 class="text-xl font-semibold text-slate-900 group-hover:text-slate-600 transition-colors tracking-tight">
+                    Principios de diseño sobrio para la web
+                </h2>
+                <p class="mt-2 text-sm text-slate-600 leading-relaxed line-clamp-2">
+                    Menos es más. Consejos prácticos sobre jerarquía visual, espaciado y contraste para lograr interfaces agradables.
+                </p>
+                <span class="inline-block mt-3 text-xs font-medium text-slate-900 underline underline-offset-4 group-hover:text-slate-600">
+                    Leer artículo completo →
+                </span>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- VISTA DE LECTURA DE ARTÍCULO (OCULTA POR DEFECTO) -->
+    <main id="article-detail" class="max-w-3xl mx-auto px-6 py-10 flex-grow w-full hidden">
+        <!-- BOTÓN VOLVER -->
+        <button onclick="showBlogFeed()" class="mb-8 inline-flex items-center gap-2 text-xs font-medium text-slate-500 hover:text-slate-900 transition-colors border border-slate-200 px-3 py-1.5 rounded-md">
+            ← Volver a las entradas
+        </button>
+
+        <article>
+            <div class="flex items-center gap-3 text-xs text-slate-400 mb-3 font-medium">
+                <span id="detail-date"></span>
+                <span>•</span>
+                <span id="detail-read-time"></span>
+            </div>
+
+            <h1 id="detail-title" class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug mb-6"></h1>
+
+            <div class="overflow-hidden rounded-lg bg-slate-100 mb-8 h-64 sm:h-80">
+                <img id="detail-image" src="" alt="" class="w-full h-full object-cover">
+            </div>
+
+            <div id="detail-body" class="text-slate-700 text-base leading-relaxed space-y-5">
+                <!-- El contenido se carga dinámicamente -->
+            </div>
+        </article>
+
+        <div class="mt-12 pt-6 border-t border-slate-100">
+            <button onclick="showBlogFeed()" class="text-xs font-medium text-slate-900 underline underline-offset-4 hover:text-slate-600">
+                ← Volver a las entradas
+            </button>
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA SOBRIO -->
+    <footer class="border-t border-slate-100 py-8 bg-white">
+        <div class="max-w-3xl mx-auto px-6 text-center text-xs text-slate-400">
+            <p>Blog estático creado para la actividad de Desarrollo Web (HTML + CSS).</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA DE NAVEGACIÓN Y CONTENIDO -->
+    <script>
+        // Datos de las 3 entradas
+        const articles = {
+            1: {
+                title: "La importancia de la semántica en HTML5",
+                date: "12 de Octubre, 2026",
+                readTime: "3 min de lectura",
+                image: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1200&q=80",
+                content: `
+                    <p class="text-lg text-slate-800 font-normal leading-relaxed">Al construir páginas web, es habitual abusar de la etiqueta <code>&lt;div&gt;</code> para crear cualquier contenedor. Sin embargo, utilizar etiquetas semánticas representa una de las mejores prácticas en el desarrollo frontend.</p>
+                    <p>Etiquetas como <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code> y <code>&lt;footer&gt;</code> otorgan un significado estructural claro al documento. Esto beneficia a:</p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-600">
+                        <li><strong>Accesibilidad:</strong> Permite que los lectores de pantalla orienten mejor a los usuarios con discapacidad visual.</li>
+                        <li><strong>Motores de búsqueda (SEO):</strong> Facilita a los buscadores entender la relevancia del contenido.</li>
+                        <li><strong>Mantenibilidad:</strong> Ayuda a que el código sea más legible para otros desarrolladores.</li>
+                    </ul>
+                `
+            },
+            2: {
+                title: "Layouts limpios: Flexbox vs. CSS Grid",
+                date: "18 de Octubre, 2026",
+                readTime: "4 min de lectura",
+                image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+                content: `
+                    <p class="text-lg text-slate-800 font-normal leading-relaxed">El maquetado web ha evolucionado considerablemente. Flexbox y CSS Grid nos permiten construir estructuras complejas sin recurrir a técnicas obsoletas.</p>
+                    <h3 class="text-lg font-semibold text-slate-900 mt-4 mb-1">Flexbox (Unidimensional)</h3>
+                    <p>Es la opción ideal cuando necesitas alinear elementos en una sola dirección (ya sea una fila o una columna). Se usa frecuentemente en menús de navegación o botones alineados.</p>
+                    <h3 class="text-lg font-semibold text-slate-900 mt-4 mb-1">CSS Grid (Bidimensional)</h3>
+                    <p>Está diseñado para controlar filas y columnas simultáneamente. Es idóneo para la maquetación general de una página o galerías de contenido.</p>
+                `
+            },
+            3: {
+                title: "Principios de diseño sobrio para la web",
+                date: "25 de Octubre, 2026",
+                readTime: "3 min de lectura",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+                content: `
+                    <p class="text-lg text-slate-800 font-normal leading-relaxed">Un sitio web funcional no necesita recargarse de elementos gráficos ni colores intensos. La simplicidad suele ofrecer la mejor experiencia de usuario.</p>
+                    <p>Tres aspectos esenciales a cuidar:</p>
+                    <ol class="list-decimal pl-5 space-y-2 text-slate-600">
+                        <li><strong>Espaciado:</strong> Dar espacio suficiente entre elementos facilita la lectura y evita la sensación de saturación.</li>
+                        <li><strong>Tipografía:</strong> Seleccionar una tipografía legible (como Inter o Helvetica) y mantener pocos tamaños diferentes.</li>
+                        <li><strong>Contraste:</strong> Utilizar tonos oscuros sobre fondos claros garantiza un excelente nivel de legibilidad.</li>
+                    </ol>
+                `
+            }
+        };
+
+        // Mostrar un artículo completo
+        function openArticle(id) {
+            const article = articles[id];
+            if (!article) return;
+
+            document.getElementById('detail-title').innerText = article.title;
+            document.getElementById('detail-date').innerText = article.date;
+            document.getElementById('detail-read-time').innerText = article.readTime;
+            document.getElementById('detail-image').src = article.image;
+            document.getElementById('detail-body').innerHTML = article.content;
+
+            document.getElementById('blog-feed').classList.add('hidden');
+            document.getElementById('article-detail').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mostrar la lista principal (feed)
+        function showBlogFeed() {
+            document.getElementById('article-detail').classList.add('hidden');
+            document.getElementById('blog-feed').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
